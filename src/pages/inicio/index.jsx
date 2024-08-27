@@ -100,6 +100,14 @@ export default function Inicio() {
                         color='#D0D0D0'
                     />
 
+
+                    <Exesdiv
+                        Link='/ex10'
+                        h2='Imc'
+                        h3='Exercício 10'
+                        color='#E44F9C'
+                    />
+
                     <Exesdiv
                         Link='/ex11'
                         h2='Tabuada'

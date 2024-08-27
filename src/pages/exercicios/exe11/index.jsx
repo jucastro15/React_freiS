@@ -21,7 +21,7 @@ export default function Tabuada() {
         setSituacao(tabuada)
         setNumero('') 
     }
-
+    
     return (
         <div className='pagina-ex11 pagina'>
             <Cabecalho />

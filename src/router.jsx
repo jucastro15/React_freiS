@@ -11,7 +11,7 @@ import Primarias from './pages/exercicios/exe7';
 import Temperatura from './pages/exercicios/exe8';
 import Sorvete from './pages/exercicios/exe9';
 import Tabuada from './pages/exercicios/exe11';
-
+import Imc from './pages/exercicios/exe10';
 
 export default function Navegacao() {
     return (
@@ -27,9 +27,10 @@ export default function Navegacao() {
                 <Route path='/ex7' element={<Primarias/>} />
                 <Route path='/ex8' element={<Temperatura/>} />
                 <Route path='/ex9' element={<Sorvete />} />
+                <Route path='/ex10' element={<Imc />} />
                 <Route path='/ex11' element={<Tabuada />} />
                 <Route path='/sobre' element={<Sobre />} />
-               0
+               
 
             </Routes>
         </BrowserRouter>
