@@ -97,12 +97,12 @@ export default function Imc() {
                     <ul>
                         {listaImc.map((i, pos) => (
                             <li key={pos}>
-                                <span className='linha-b'> {i}
+                                <li className='linha-b'> {i}
                                     <img className='edit' onClick={() => editing(pos)} src="/assets/images/edit.png" alt="" />
-                                </span>
-                                <span className='bot'>
+                                </li>
+                                <li className='bot'>
                                     <button onClick={remove}><img src="/assets/images/image.png" alt="" /></button>
-                                </span>
+                                </li>
                             </li>
                         ))}
                     </ul>
