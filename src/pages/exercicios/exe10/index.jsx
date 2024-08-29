@@ -1,6 +1,7 @@
 import './index.scss'
 import { useState } from 'react'
 import Cabecalho from '../../../components/cabecalho'
+import { Link } from 'react-router-dom'
 
 export default function Imc() {
     const [altura, setAltura] = useState(0)
@@ -16,17 +17,17 @@ export default function Imc() {
         let s = ''
 
         if (i >= 40) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Obesidade Grau |||`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau |||`
         } else if (i >= 35 && i <= 39.9) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Obesidade Grau ||`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau ||`
         } else if (i >= 30 && i <= 34.9) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Obesidade Grau |`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau |`
         } else if (i >= 25 && i <= 29.9) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Sobrepeso`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Sobrepeso`
         } else if (i >= 18.5 && i <= 24.9) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Peso Normal`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Peso Normal`
         } else if (i < 18.5) {
-            s = `Peso: ${peso} | Altura: ${altura} | Situação: Abaixo do Peso`
+            s = `Altura: ${altura} | Peso: ${peso} | Situação: Abaixo do Peso`
         }
 
         if (edit === -1) {
@@ -42,7 +43,7 @@ export default function Imc() {
         setAltura(0)
         setPeso(0)
     }
-    function remove(pos){
+    function remove(pos) {
 
         listaImc.splice(pos, 1)
 
@@ -53,7 +54,7 @@ export default function Imc() {
         const item = listaImc[pos].split('|')
         const alturaItem = parseFloat(item[1].split(':')[1].trim())
         const pesoItem = parseFloat(item[0].split(':')[1].trim())
-        
+
         setAltura(alturaItem)
         setPeso(pesoItem)
         setEdit(pos)
@@ -66,48 +67,59 @@ export default function Imc() {
     }
 
     return (
-        <div className='pagina-ex10'>
+        <div className='pagina-ex10 pagina'>
             <Cabecalho />
-            <main>
-                <div className='titulo-ex10'>
-                    <a href="/"><img className='seta' src="/assets/images/setinha_freiS.png" alt="" /></a>
-                    <h2>Exercício 10 - Calcule o IMC</h2>
-                </div>
-                <br />
-                <hr width="94%" color='#E44F9C' />
-                <div className='bloco' width="94px">
-                    <p>Implemente um programa em Javascript que a partir da altura e do peso de uma pessoa, calcule o IMC e avalie a faixa correspondente a tabela ao lado. Ao final, apresente o IMC e a situação.</p>
-                </div>
-                <div className='lado'>
-                    <div className='card'>
-                        <div className='l'>
-                            <div className='c'>
-                                <h3>Altura</h3>
-                                <input type="number" step="0.01" placeholder="0.0" value={altura} onChange={e => setAltura(parseFloat(e.target.value))} />
-                            </div>
-                            <div className='c'>
-                                <h3>Peso</h3>
-                                <input type="number" step="0.01" placeholder="0.0" onKeyUp={tA} value={peso} onChange={e => setPeso(parseFloat(e.target.value))} />
-                            </div>
+
+            <section className='titulo'>
+                <Link to='/'>
+                    <img src="/assets/images/voltar.png" alt="" />
+                </Link>
+
+                <h1>Exercício 10 - Imc</h1>
+
+
+            </section>
+
+            <div className='divisao'></div>
+
+            <section className='quadro'>
+                <p>Implemente um programa em Javascript que a partir da altura e do peso de uma pessoa,  <b>calcule o IMC</b> e avalie a faixa correspondente a tabela ao lado. Ao final, apresente o IMC e a situação.</p>
+            </section>
+
+            <section className='ex'>
+
+                <div className='card'>
+                    <div className='l'>
+                        <div className='c'>
+                            <h2>Altura</h2> <input type="text" value={altura} onChange=
+                                {e => setAltura(e.target.value)} />
                         </div>
-                        <div className='l'>
-                            <button onClick={addImc}>Executar</button>
+                        <div className='c'>
+                            <h2>Peso</h2>
+                            <input type="text" value={peso} onChange={e => setPeso(e.target.value)} />
                         </div>
                     </div>
-                    <ul>
-                        {listaImc.map((i, pos) => (
-                            <li key={pos}>
-                                <li className='linha-b'> {i}
-                                    <img className='edit' onClick={() => editing(pos)} src="/assets/images/edit.png" alt="" />
-                                </li>
-                                <li className='bot'>
-                                    <button onClick={remove}><img src="/assets/images/image.png" alt="" /></button>
-                                </li>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className='bu'>
+                        <button onClick={addImc} >Executar</button>
+                    </div>
+
+
                 </div>
-            </main>
+
+                <ul>
+                    {listaImc.map((i, pos) => (
+                        <li key={pos}>
+                            <li className='linha-b'> {i}
+                                <img className='edit' onClick={() => editing(pos)} src="/assets/images/edit.png" alt="" />
+                            </li>
+                            <li className='bot'>
+                                <button onClick={remove}><img src="/assets/images/image.png" alt="" /></button>
+                            </li>
+                        </li>
+                    ))}
+                </ul>
+
+            </section>
         </div>
     )
 }

@@ -45,9 +45,12 @@ code {
       border-radius: 12px;
       margin: 0px 4rem;
       margin-top: 20px;
-  }
+       }
 
+
+ 
   .quadro {
+     
       background-color: #fff;
       max-width: 1275px;
       height: 213px;
@@ -59,7 +62,8 @@ code {
 
 
       p {
-          font: 400 16px "Roboto", sans-serif;
+          font: 400 16px "Roboto", sans-serif; 
+          color: #383131;
           text-align: center;
           padding-top: 5rem;
           max-width: 1200px;
@@ -67,4 +71,11 @@ code {
 
       }
   }
+
+  @media (max-width: 768px) {
+    .ex {
+        flex-direction: column;
+        width: 90%; 
+    }
+}
 }
