@@ -7,7 +7,6 @@ export default function Imc() {
     const [altura, setAltura] = useState(0)
     const [peso, setPeso] = useState(0)
     const [listaImc, setListaImc] = useState([])
-    const [imc, setImc] = useState('')
     const [edit, setEdit] = useState(-1)
 
     function addImc() {
@@ -39,26 +38,26 @@ export default function Imc() {
             setEdit(-1)
         }
 
-        setImc(s)
         setAltura(0)
         setPeso(0)
     }
+    
     function remove(pos) {
-
-        listaImc.splice(pos, 1)
-
-        setListaImc([...listaImc])
-
+        const updatedList = [...listaImc];
+        updatedList.splice(pos, 1)
+        setListaImc(updatedList)
     }
+
     function editing(pos) {
         const item = listaImc[pos].split('|')
-        const alturaItem = parseFloat(item[1].split(':')[1].trim())
-        const pesoItem = parseFloat(item[0].split(':')[1].trim())
-
+        const alturaItem = parseFloat(item[0].split(':')[1].trim())
+        const pesoItem = parseFloat(item[1].split(':')[1].trim())
+    
         setAltura(alturaItem)
         setPeso(pesoItem)
         setEdit(pos)
     }
+    
 
     function tA(e) {
         if (e.key === 'Enter') {
@@ -74,51 +73,44 @@ export default function Imc() {
                 <Link to='/'>
                     <img src="/assets/images/voltar.png" alt="" />
                 </Link>
-
                 <h1>Exercício 10 - Imc</h1>
-
-
             </section>
 
             <div className='divisao'></div>
 
             <section className='quadro'>
-                <p>Implemente um programa em Javascript que a partir da altura e do peso de uma pessoa,  <b>calcule o IMC</b> e avalie a faixa correspondente a tabela ao lado. Ao final, apresente o IMC e a situação.</p>
+                <p>Implemente um programa em Javascript que a partir da altura e do peso de uma pessoa, <b>calcule o IMC</b> e avalie a faixa correspondente a tabela ao lado. Ao final, apresente o IMC e a situação.</p>
             </section>
 
             <section className='ex'>
-
                 <div className='card'>
                     <div className='l'>
                         <div className='c'>
-                            <h2>Altura</h2> <input type="text" value={altura} onChange=
-                                {e => setAltura(e.target.value)} />
+                            <h2>Altura</h2>
+                            <input type="text" value={altura} onChange={e => setAltura(e.target.value)} onKeyDown={tA} />
                         </div>
                         <div className='c'>
                             <h2>Peso</h2>
-                            <input type="text" value={peso} onChange={e => setPeso(e.target.value)} />
+                            <input type="text" value={peso} onChange={e => setPeso(e.target.value)} onKeyDown={tA} />
                         </div>
                     </div>
                     <div className='bu'>
-                        <button onClick={addImc} >Executar</button>
+                        <button onClick={addImc}>Executar</button>
                     </div>
-
-
                 </div>
 
                 <ul>
                     {listaImc.map((i, pos) => (
                         <li key={pos}>
-                            <li className='linha-b'> {i}
+                            <div className='linha-b'>{i}
                                 <img className='edit' onClick={() => editing(pos)} src="/assets/images/edit.png" alt="" />
-                            </li>
-                            <li className='bot'>
-                                <button onClick={remove}><img src="/assets/images/image.png" alt="" /></button>
-                            </li>
+                            </div>
+                            <div className='bot'>
+                                <button onClick={() => remove(pos)}><img src="/assets/images/image.png" alt="" /></button>
+                            </div>
                         </li>
                     ))}
                 </ul>
-
             </section>
         </div>
     )
