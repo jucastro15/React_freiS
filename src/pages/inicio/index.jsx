@@ -122,8 +122,7 @@ export default function Inicio() {
                         Link='/ex12'
                         h2='Comparador de pessoas'
                         h3='Exercício 12'
-                        color='#FFCE37
-                        '
+                        color='#ff0000'
                     />
 
                 </div>
