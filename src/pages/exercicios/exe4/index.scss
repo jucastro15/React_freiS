@@ -19,24 +19,22 @@
         .card {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+        
             align-items: center;
-            padding: 20px 30px;
-            width: 647px;
-            height: 194px;
+            padding: 10px;
+            width: 480px;
+            height: 363px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0px 7px 15px #adadad59;
             position: relative;
 
             .conteudo {
+                display: flex;
+                flex-direction: column;
                 margin-top: 20px;
                 margin-bottom: 0px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 40px;
+                gap: 20px;
                 max-width: 100%;
             }
 
@@ -53,7 +51,7 @@
                 }
 
                 input {
-                    max-width: 120px;
+                    width: 400px;                    ;
                     padding: 12px 20px;
                     border-radius: 12px;
                     border: 1px solid #A5A5A5;
@@ -88,7 +86,7 @@
             color: #383131;
             margin-top: 1rem;
             text-align: right;
-            width: 680px;
+            width: 500px;
 
         }
 

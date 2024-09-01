@@ -17,9 +17,9 @@ export default function Nota() {
         const nota2 = Number(n2) ;
         const nota3 = Number(n3) ;
 
-        const Media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
+        const Media = ((nota1 + nota2 + nota3) / 3).toFixed(1);
 
-    setPassou(Media >= 6)
+       setPassou(Media >= 6)
 
        
         setTpp(Media);
@@ -48,16 +48,16 @@ export default function Nota() {
                 <div className='card'>
                     <div className='conteudo'>
                         <div className='qtd'>
-                            <h2>Nota 1</h2>
-                            <input type="number" value={n1} onChange={e => setN1(e.target.value)} />
+                            <h2>Nota 01</h2>
+                            <input type="text" value={n1} onChange={e => setN1(e.target.value)} />
                         </div>
                         <div className='qtd'>
-                            <h2>Nota 2</h2>
-                            <input type="number" value={n2} onChange={e => setN2(e.target.value)} />
+                            <h2>Nota 02</h2>
+                            <input type="text" value={n2} onChange={e => setN2(e.target.value)} />
                         </div>
                         <div className='qtd'>
-                            <h2>Nota 3</h2>
-                            <input type="number" value={n3} onChange={e => setN3(e.target.value)} />
+                            <h2>Nota 03</h2>
+                            <input type="text" value={n3} onChange={e => setN3(e.target.value)} />
                         </div>    
                     </div>
 

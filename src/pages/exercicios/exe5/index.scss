@@ -21,9 +21,9 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 30px;
-            width: 647px;
-            height: 194px;
+            padding: 15px ;
+            width: 450px;
+            height: 340px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0px 7px 15px #adadad59;
@@ -34,10 +34,10 @@
                 margin-top: 20px;
                 margin-bottom: 0px;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 40px;
+                gap: 20px;
                 max-width: 100%;
             }
 
@@ -54,7 +54,7 @@
                 }
 
                 input {
-                    max-width: 120px;
+                    width: 380px;
                     padding: 12px 20px;
                     border-radius: 12px;
                     border: 1px solid #A5A5A5;
@@ -73,7 +73,7 @@
                 margin-top: 1rem;
                 position: absolute;
                 bottom: 20px;
-                right: 20px;
+                right: 30px;
 
                 button:hover {
                     background-color: #4d5ec0;
@@ -88,8 +88,8 @@
             font: 700 16px "Roboto", sans-serif;
             color: #383131;
             text-align: right;
-            width: 680px;
-            margin: 0;
+            width: 480px;
+            margin: 2px;
         }
 
     }
