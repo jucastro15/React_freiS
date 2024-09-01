@@ -11,9 +11,10 @@ export default function Primarias() {
 
     function Cor() {
 
-        let cores = cor1 == 'vermelho' || cor1 == 'amarelo' || cor1 == 'azul' && cor2 == 'vermelho' || cor2 == 'amarelo'|| cor2 == 'azul'
+        const coresPrimarias = ['vermelho', 'amarelo', 'azul'];
+        const coresValidas = coresPrimarias.includes(cor1.toLowerCase()) && coresPrimarias.includes(cor2.toLowerCase());
 
-        setCor(cores)
+        setCor(coresValidas);
         setCor1('')
         setCor2('')
 
