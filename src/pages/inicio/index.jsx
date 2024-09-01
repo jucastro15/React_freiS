@@ -7,8 +7,11 @@ export default function Inicio() {
     return (
         <div className='pagina-inicio'>
             <Cabecalho />
+
+
             <section>
-                <h1>Escolha um treino...</h1>
+                <h1 className=' tr'>Escolha um treino...</h1>
+
 
                 <div className='exercicios'>
 
@@ -113,6 +116,14 @@ export default function Inicio() {
                         h2='Tabuada'
                         h3='Exercício 11'
                         color='#ff4800'
+                    />
+
+                    <Exesdiv
+                        Link='/ex12'
+                        h2='Comparador de pessoas'
+                        h3='Exercício 12'
+                        color='#FFCE37
+                        '
                     />
 
                 </div>

@@ -1,0 +1,212 @@
+.pagina-ex12 {
+
+    background-color: #f0f4f8;
+
+    .divisao {
+        background-color: #FFCE37;
+    }
+
+    .ex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0px 0px 15px 2px #e6e6e6;
+            margin: 32px 0px;
+            width: 446px;
+            border-radius: 12px;
+            margin-left: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+
+
+            .l {
+                display: flex;
+                flex-direction: column;
+
+                .c {
+
+
+                    h2 {
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                    }
+
+                    input[type="text"] {
+                        color: #000000;
+                        font: 400 16px "Roboto", sans-serif;
+                        border-radius: 12px;
+                        padding: 0px 20px;
+                        outline: none;
+                        width: 408px;
+                        height: 41px;
+                        border: 1px solid #a3a2a2;
+                    }
+
+
+                }
+
+                .sexo {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 25px;
+
+                    h2 {
+                        color: #383131;
+                        font: 700 16px "Roboto", sans-serif;
+                    }
+
+                    .se {
+
+
+                        display: flex;
+                        flex-direction: row;
+                        gap: 10px;
+
+
+
+                    }
+
+
+                }
+            }
+
+            .bu {
+                margin-top: auto;
+                text-align: end;
+
+                button {
+                    padding: 14.5px 85px;
+                    background-color: #6278F7;
+                    border: none;
+                    border-radius: 10px;
+                    color: white;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: #4789e8;
+                    }
+                }
+            }
+        }
+
+        .lista {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex-direction: row;
+
+            .hr {
+                display: block;
+                margin-top: 50px;
+
+
+                h2 {
+                    font: 700 18px "Roboto", sans-serif;
+
+                    margin: 0px;
+                }
+
+                hr {
+                    margin-top: 10px;
+                    background-color: #6533B7;
+                    width: 604px;
+                    height: 2px;
+
+                }
+            }
+
+            .plano {
+                background-color: white;
+                width: 215px;
+                height: 159.11px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+
+
+                .tit {
+                    padding-top: 20px;
+
+
+                }
+
+                h1,
+                h2 {
+                    text-align: center;
+                    color: #383131;
+                    font-size: 14px;
+                    margin: 0px;
+                }
+
+
+                p {
+                    font-size: 14px;
+                    color: #999;
+
+                    margin: 5pxF;
+                }
+
+                .titulo {
+                    text-align: center;
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0;
+                    gap: 0;
+
+                    button {
+                        width: 107.5px;
+                        padding: 10px;
+                        background-color: #6278F7;
+                        border: none;
+                        color: white;
+                        font-size: 14px;
+                        border-radius: 0;
+                    }
+
+                    .a {
+                        border-right: 1px solid #383838c7;
+                        border-bottom-left-radius: 8px;
+                        border-bottom-right-radius: 0;
+                    }
+
+                    .b {
+                        border-left: 1px solid #383838c7;
+                        border-bottom-right-radius: 8px;
+                        border-bottom-left-radius: 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .estatisticas {
+        width: 100%;
+        max-width: 1280px;
+     
+        margin-left: 3rem;
+        margin-right: auto;
+
+
+        p {
+            color: #383131;
+            font: 700 16px "Roboto", sans-serif;
+            margin: 0px;
+        }
+    }
+}

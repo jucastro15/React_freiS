@@ -13,13 +13,16 @@
 
         h1 {
             font: 700 26px "Roboto", sans-serif;
+            align-self: start;
+            margin-left: 4rem;
         }
 
         .exercicios {
             display: flex;
             flex-direction: row;
-            gap: 3.5rem;
-            flex-wrap: wrap; 
+            gap: 3rem;
+            flex-wrap: wrap;
+
         }
     }
 }

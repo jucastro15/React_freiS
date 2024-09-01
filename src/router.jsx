@@ -10,8 +10,10 @@ import Salario from './pages/exercicios/exe6';
 import Primarias from './pages/exercicios/exe7';
 import Temperatura from './pages/exercicios/exe8';
 import Sorvete from './pages/exercicios/exe9';
-import Tabuada from './pages/exercicios/exe11';
 import Imc from './pages/exercicios/exe10';
+import Tabuada from './pages/exercicios/exe11';
+import Comparadorpessoas from './pages/exercicios/exe12'
+
 
 export default function Navegacao() {
     return (
@@ -29,6 +31,7 @@ export default function Navegacao() {
                 <Route path='/ex9' element={<Sorvete />} />
                 <Route path='/ex10' element={<Imc />} />
                 <Route path='/ex11' element={<Tabuada />} />
+                <Route path='/ex12' element={<Comparadorpessoas/>}/>
                 <Route path='/sobre' element={<Sobre />} />
                
 

@@ -29,6 +29,8 @@ export default function Imc() {
             s = `Altura: ${altura} | Peso: ${peso} | Situação: Abaixo do Peso`
         }
 
+
+        
         if (edit === -1) {
             setListaImc([...listaImc, s])
         } else {
