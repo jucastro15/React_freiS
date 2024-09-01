@@ -39,7 +39,7 @@ export default function ComparadorPessoas() {
 
             setListaPessoas(novaListaPessoas);
 
-           
+
             let maior = -Infinity;
             let menor = Infinity;
             let nm = "";
@@ -133,23 +133,23 @@ export default function ComparadorPessoas() {
                             <div className='sexo'>
                                 <h2>Sexo</h2>
                                 <div className='se'>
-                                       <div>
-                                    <input type='radio' name='gpo' value="Masculino" onChange={e => setSexo(e.target.value)} checked={sexo === 'Masculino'} /> Masculino
-                                </div>
-                                <div>
-                                    <input type='radio' name='gpo' value="Feminino" onChange={e => setSexo(e.target.value)} checked={sexo === 'Feminino'} /> Feminino
+                                    <div>
+                                        <input type='radio' name='gpo' value="Masculino" onChange={e => setSexo(e.target.value)} checked={sexo === 'Masculino'} /> Masculino
+                                    </div>
+                                    <div>
+                                        <input type='radio' name='gpo' value="Feminino" onChange={e => setSexo(e.target.value)} checked={sexo === 'Feminino'} /> Feminino
+                                    </div>
                                 </div>
                             </div>
-                                </div>
-                             
+
                         </div>
                         <div className='bu'>
                             <button onClick={addPessoa}>Executar</button>
                         </div>
                     </div>
-                    
+
                     <section className='estatisticas'>
-                        
+
                         <p>Pessoa mais velha: {estatisticas.maisVelho}</p>
                         <p>Mulher mais jovem: {estatisticas.mulherMaisJovem}</p>
                         <p>Média de idade: {estatisticas.mediaIdade}</p>
@@ -160,23 +160,23 @@ export default function ComparadorPessoas() {
                 <div className='lista'>
                     <div className='hr'>
                         <h2>Pessoas</h2>
-                    <hr /> 
+                        <hr />
                     </div>
-                   
+
                     {listaPessoas.map((item, pos) => (
                         <div className='plano' key={pos}>
-                           <div className=' tit'>
-                               <h1>{item.nome}</h1>
+                            <div className=' tit'>
+                                <h1>{item.nome}</h1>
                                 <h2>{item.idade} anos</h2>
-                           </div>
-                             
-                                <p>{item.sexo}</p>
-                       
-                            <div className='titulo'>
-                                 <button  className= 'a 'onClick={() => alterarDados(pos)}>Editar</button>
-                            <button className='b' onClick={() => remove(pos)}>Apagar</button>
                             </div>
-                           
+
+                            <p>{item.sexo}</p>
+
+                            <div className='titulo'>
+                                <button className='a ' onClick={() => alterarDados(pos)}>Editar</button>
+                                <button className='b' onClick={() => remove(pos)}>Apagar</button>
+                            </div>
+
                         </div>
                     ))}
                 </div>
