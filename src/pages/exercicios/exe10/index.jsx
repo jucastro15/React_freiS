@@ -1,69 +1,68 @@
-import './index.scss'
-import { useState } from 'react'
-import Cabecalho from '../../../components/cabecalho'
-import { Link } from 'react-router-dom'
+import './index.scss';
+import { useState } from 'react';
+import Cabecalho from '../../../components/cabecalho';
+import { Link } from 'react-router-dom';
 
 export default function Imc() {
-    const [altura, setAltura] = useState(0)
-    const [peso, setPeso] = useState(0)
-    const [listaImc, setListaImc] = useState([])
-    const [edit, setEdit] = useState(-1)
+    const [altura, setAltura] = useState('');
+    const [peso, setPeso] = useState('');
+    const [listaImc, setListaImc] = useState([]);
+    const [edit, setEdit] = useState(-1);
 
     function addImc() {
-        if (peso === 0 || altura === 0) return;
+        const alturaNum = parseFloat(altura);
+        const pesoNum = parseFloat(peso);
 
-        const i = peso / (altura * altura)
-        let s = ''
+        if (isNaN(alturaNum) || isNaN(pesoNum) || alturaNum === 0 || pesoNum === 0) return;
+
+        const i = pesoNum / (alturaNum * alturaNum);
+        let situacao;
 
         if (i >= 40) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau |||`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Obesidade Grau III |||`;
         } else if (i >= 35 && i <= 39.9) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau ||`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Obesidade Grau II ||`;
         } else if (i >= 30 && i <= 34.9) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Obesidade Grau |`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Obesidade Grau I |`;
         } else if (i >= 25 && i <= 29.9) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Sobrepeso`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Sobrepeso`;
         } else if (i >= 18.5 && i <= 24.9) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Peso Normal`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Peso Normal`;
         } else if (i < 18.5) {
-            s = `Altura: ${altura} | Peso: ${peso} | Situação: Abaixo do Peso`
+            situacao = `Altura: ${alturaNum} | Peso: ${pesoNum} | Situação: Abaixo do Peso`;
         }
 
+        const newImc = { altura: alturaNum, peso: pesoNum, situacao };
 
-        
         if (edit === -1) {
-            setListaImc([...listaImc, s])
+            setListaImc([...listaImc, newImc]);
         } else {
-            const updatedList = [...listaImc]
-            updatedList[edit] = s
-            setListaImc(updatedList)
-            setEdit(-1)
+            const updatedList = [...listaImc];
+            updatedList[edit] = newImc;
+            setListaImc(updatedList);
+            setEdit(-1);
         }
 
-        setAltura(0)
-        setPeso(0)
+        setAltura('');
+        setPeso('');
     }
-    
+
     function remove(pos) {
         const updatedList = [...listaImc];
-        updatedList.splice(pos, 1)
-        setListaImc(updatedList)
+        updatedList.splice(pos, 1);
+        setListaImc(updatedList);
     }
 
     function editing(pos) {
-        const item = listaImc[pos].split('|')
-        const alturaItem = parseFloat(item[0].split(':')[1].trim())
-        const pesoItem = parseFloat(item[1].split(':')[1].trim())
-    
-        setAltura(alturaItem)
-        setPeso(pesoItem)
-        setEdit(pos)
+        const item = listaImc[pos];
+        setAltura(item.altura);
+        setPeso(item.peso);
+        setEdit(pos);
     }
-    
 
     function tA(e) {
         if (e.key === 'Enter') {
-            addImc()
+            addImc();
         }
     }
 
@@ -89,11 +88,23 @@ export default function Imc() {
                     <div className='l'>
                         <div className='c'>
                             <h2>Altura</h2>
-                            <input type="text" value={altura} onChange={e => setAltura(e.target.value)} onKeyDown={tA} />
+                            <input
+                                type="number"
+                                step="0.01"
+                                value={altura}
+                                onChange={e => setAltura(e.target.value)}
+                                onKeyDown={tA}
+                            />
                         </div>
                         <div className='c'>
                             <h2>Peso</h2>
-                            <input type="text" value={peso} onChange={e => setPeso(e.target.value)} onKeyDown={tA} />
+                            <input
+                                type="number"
+                                step="0.1"
+                                value={peso}
+                                onChange={e => setPeso(e.target.value)}
+                                onKeyDown={tA}
+                            />
                         </div>
                     </div>
                     <div className='bu'>
@@ -104,16 +115,23 @@ export default function Imc() {
                 <ul>
                     {listaImc.map((i, pos) => (
                         <li key={pos}>
-                            <div className='linha-b'>{i}
-                                <img className='edit' onClick={() => editing(pos)} src="/assets/images/edit.png" alt="" />
+                            <div className='linha-b'>{i.situacao}
+                                <img
+                                    className='edit'
+                                    onClick={() => editing(pos)}
+                                    src="/assets/images/edit.png"
+                                    alt=""
+                                />
                             </div>
                             <div className='bot'>
-                                <button onClick={() => remove(pos)}><img src="/assets/images/image.png" alt="" /></button>
+                                <button onClick={() => remove(pos)}>
+                                    <img src="/assets/images/image.png" alt="" />
+                                </button>
                             </div>
                         </li>
                     ))}
                 </ul>
             </section>
         </div>
-    )
+    );
 }

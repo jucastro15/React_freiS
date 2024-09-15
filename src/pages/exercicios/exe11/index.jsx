@@ -10,9 +10,8 @@ export default function Tabuada() {
     function calcularTabuada() {
        
         const numeroInt = Number(numero)
-
-       
         let tabuada = []
+        
         for (let i = 1; i <= 10; i++) {
             tabuada.push(`${numeroInt} X ${i} = ${numeroInt * i}`)
         }
